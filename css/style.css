@@ -65,11 +65,16 @@ body {
 .level__list {
     display: flex;
     flex-direction: column-reverse;
+    list-style: none;
 }
 .level__list-item {
     font-size: 20px;
     font-weight: bold;
     color: green;
+    padding-left: 40px;
+}
+.level__list-item span {
+    margin-right: 30px;
 }
 .millionaire__question {
     display: none;
@@ -129,6 +134,29 @@ body {
 .list__item-active {
     background-color: green;
     color: #000;
+    border-radius: 10px;
+}
+.lost {
+    position: absolute;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+}
+.lost__title {
+    font-size: 32px;
+}
+.win__game {
+    position: absolute;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+}
+.win__game-title {
+    font-size: 32px;
 }
 
 
@@ -137,4 +165,14 @@ body {
 }
 .hide {
     display: none;
+}
+
+.choice__anser {
+    background-color: green;
+}
+.right__anser {
+    background-color: greenyellow;
+}
+.wrong__anser {
+    background-color: red;
 }
