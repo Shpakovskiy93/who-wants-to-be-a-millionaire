@@ -1,6 +1,6 @@
 const questions = [
     {
-        question: 'Итак, первый вопрос! На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?',
+        question: 'На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?',
         optionsAnser: ['На гуслях', 'На виолончели', 'На баяне', 'На гитаре'],
         anser: 'На гуслях',
     },
@@ -16,40 +16,67 @@ const questions = [
     },
 ];
 
+const startGameEl = document.querySelector('.start__game');
 const levelMoneyEl = document.querySelectorAll('.level__list-item');
 const questionEl = document.querySelector('.question__text');
 const ansersEl = document.querySelectorAll('.anser');
+const timerEl = document.querySelector('.timer');
 
 
-function addQuestion(level) {
+let startAudio = new Audio('../music/start.mp3');
+let timerAudio = new Audio('../music/timer.mp3');
+
+let level = 0;
+let timer;
+
+
+function showGame() {
+    document.querySelector('.millionaire__inner').classList.add('show');
+    document.querySelector('.millionaire__question').classList.add('show');
+    startGameEl.classList.add('hide');
+    game();
+}
+
+function startTimer() {
+    timerEl.classList.add('show');
+    let second = 30;
+    timerEl.innerHTML = second;
+    timer = setInterval(() => {
+        second--;
+        timerEl.innerHTML = second;
+    }, 1000);
+};
+
+function createCardGame() {
     questionEl.innerHTML = questions[level].question;
     ansersEl.forEach((anser, index) => {
-        anser.innerHTML = questions[level].optionsAnser[index];
+        setTimeout(() => {
+                anser.innerHTML = questions[level].optionsAnser[index];
+                anser.classList.add('show');
+                if(timer) clearInterval(timer);
+                startTimer();
+                timerAudio.play();
+        }, 3000);
     })
-};
-function compareAnswers(userAnswer, answer) {
-    if(userAnswer == answer) return true;
-    else return false;
 }
 
+function getAndComparisonAnser() {
+    let userAnser = this.innerHTML;
+    
+    if(userAnser == questions[level].anser) {
+        level++;
+        ansersEl.forEach(anser => anser.classList.remove('show'));
+        timerEl.classList.remove('show');
+        timerAudio.pause();
+        timerAudio.currentTime = 0;
+        game();
+    }
+}
 
 function game() {
-    let level = 0;
-    let userChoice;
+    createCardGame();
 
-    addQuestion(level);
-
-    ansersEl.forEach(btn => btn.addEventListener('click', (e) => {
-        userChoice = e.target.innerHTML;
-        let anser = questions[level].anser;
-
-        if(compareAnswers(userChoice, anser)) {
-            level++;
-            addQuestion(level);
-        } else {
-            console.log(0);
-        }
-    }))
-    
+    ansersEl.forEach(btn => btn.addEventListener('click', getAndComparisonAnser));
 }
-game();
+
+startGameEl.addEventListener('click', showGame);

@@ -18,9 +18,24 @@ body {
 .millionaire {
     height: 100vh;
     padding-top: 20px;
+    position: relative;
+}
+.start__game {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    cursor: pointer;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
 .millionaire__inner {
-    display: flex;
+    display: none;
     justify-content: space-between;
     width: 100%;
 }
@@ -56,6 +71,10 @@ body {
     font-weight: bold;
     color: green;
 }
+.millionaire__question {
+    display: none;
+    flex-direction: column;
+}
 .question {
     border: 5px solid rgb(98, 98, 239);
     border-radius: 50px;
@@ -71,6 +90,7 @@ body {
 .question__text {
     display: inline-block;
     max-width: 80%;
+    text-align: center;
 }
 .ansers {
     display: flex;
@@ -85,10 +105,11 @@ body {
     height: 50px;
     padding-left: 55px;
     cursor: pointer;
-    display: flex;
+    display: none;
     align-items: center;
     background: transparent;
     color: #fff;
+    margin-bottom: 10px;
 }
 .anser:first-child {
     margin-right: 10px;
@@ -101,11 +122,19 @@ body {
 }
 .timer {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
 .list__item-active {
     background-color: green;
     color: #000;
+}
+
+
+.show {
+    display: flex;
+}
+.hide {
+    display: none;
 }
