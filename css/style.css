@@ -1,0 +1,111 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+body {
+    background-color: #000033;
+    color: #fff;
+}
+
+.millionaire {
+    height: 100vh;
+    padding-top: 20px;
+}
+.millionaire__inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.millionaire__promt {
+    width: 33%;
+}
+.promt__cell,
+.promt__fifty,
+.promt__hall {
+    border: 5px solid rgb(98, 98, 239);
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 10px 20px;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.millionaire__logo {
+    max-height: 350px;
+}
+.millionaire__level {
+    width: 33%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.level__list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.level__list-item {
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+}
+.question {
+    border: 5px solid rgb(98, 98, 239);
+    border-radius: 50px;
+    font-size: 22px;
+    padding: 10px;
+    height: 100px;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.question__text {
+    display: inline-block;
+    max-width: 80%;
+}
+.ansers {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: center;
+}
+.anser {
+    border: 3px solid rgb(98, 98, 239);
+    width: 35%;
+    border-radius: 25px;
+    height: 50px;
+    padding-left: 55px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: #fff;
+}
+.anser:first-child {
+    margin-right: 10px;
+}
+.anser:last-child {
+    margin-left: 10px;
+}
+.anser:hover {
+    background-color: green;
+}
+.timer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.list__item-active {
+    background-color: green;
+    color: #000;
+}
